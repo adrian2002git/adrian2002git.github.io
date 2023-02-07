@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 $zip = new ZipArchive;
 
 $file_url = 'https://speed.hetzner.de/100MB.bin';
@@ -14,9 +17,9 @@ $res = $zip->open('assets/data.zip');
 if ($res === TRUE) {
     $zip->extractTo('assets');
     $zip->close();
-    echo 'woot!';
+    echo 'Success';
 } else {
-    echo 'doh!';
+    echo 'Failed!'.$res.PHP_EOL;
 }
 
 echo "Finished Extracting";
