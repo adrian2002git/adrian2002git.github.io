@@ -2,24 +2,31 @@
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
-$zip = new ZipArchive;
 
-$file_url = 'https://speed.hetzner.de/100MB.bin';
-$save_to = 'assets/data.zip';
+$file_url = 'https://ddragon.leagueoflegends.com/cdn/dragontail-9.19.1.tgz';
+$save_to = 'assets/data.tgz';
 echo "Downloading...".PHP_EOL;
-$content = file_get_contents($file_url);
-file_put_contents($save_to, $content);
-echo "File downloaded successfully!";
 
-echo "extracting".PHP_EOL;
+$fp = fopen($save_to, 'w+');
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $file_url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_FILE, $fp);
+curl_exec($ch);
+curl_close($ch);
+fclose($fp);
+echo "File downloaded successfully!".PHP_EOL;
 
-$res = $zip->open('assets/data.zip');
-if ($res === TRUE) {
-    $zip->extractTo('assets');
-    $zip->close();
+echo "Extracting...".PHP_EOL;
+$tar = new PharData('assets/data.tgz');
+try {
+    $files = new RecursiveIteratorIterator($tar);
+    foreach ($files as $file) {
+        $tar->extractTo('assets');
+    }
     echo 'Success';
-} else {
-    echo 'Failed!'.$res.PHP_EOL;
+} catch (Exception $e) {
+    echo 'Failed!'.$e->getMessage().PHP_EOL;
 }
-
 echo "Finished Extracting";
