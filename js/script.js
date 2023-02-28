@@ -1,6 +1,5 @@
 $(document).ready(function() {
     var oddsArray = null;
-
     function getOddsArray(currentlevel, callback) {
         $.getJSON("../odds.json", function(data) {
             $.each(data.level_odds, function() {
@@ -12,6 +11,22 @@ $(document).ready(function() {
             });
         });
     }
+
+    function getChampionData(tierIndex, callback) {
+        //console.log("this function");
+        $.getJSON("../assets/13.3.1/data/en_US/tft-champion.json", function(data) {
+            var champArray = [];
+            $.each(data.data, function() {
+                var championobj = $(this);
+                if (parseInt(championobj[0]['tier']) === parseInt(tierIndex)) {
+                    champArray.push(championobj[0]['image']['full']);
+                }
+            });
+            callback(champArray);
+        });
+    }
+
+
 
     function generateChampion(callback) {
         var currentlevel = $("#CurrentLevel").val();
@@ -50,25 +65,50 @@ $(document).ready(function() {
     });
 
     function refreshShop(championArray) {
-        // Use the championArray here
-        console.log(championArray);
-        $.each(championArray, function( index, value ) {
-            console.log( index + ": " + value );
+        $('.champion-panel').empty();
+        $.each(championArray, function( i, value ) {
             switch (value){
-                case "1":
-                    $(".champion-panel").style("background: gray");
-                    break;
-                case "2":
-                    break;
-                case "3":
-                    break;
+                case 1:
+                    console.log("gray")
+                    getChampionData(value, function (champArray) {
+                        var number = Math.floor(Math.random() * champArray.length);
+                        console.log(champArray[number])
+                        $('.champion-panel').eq(i-1).append("<img id='champ-art' src='../assets/13.3.1/img/tft-champion/" + champArray[number] + "'/>");
+                    });
 
-                case "4":
                     break;
-
-                case "5":
+                case 2:
+                    console.log("green")
+                    getChampionData(value, function (champArray) {
+                        var number = Math.floor(Math.random() * champArray.length);
+                        console.log(champArray[number])
+                        $('.champion-panel').eq(i-1).prepend("<img id='champ-art' src='../assets/13.3.1/img/tft-champion/" + champArray[number] + "'/>");
+                    });
                     break;
-
+                case 3:
+                    console.log("blue")
+                    getChampionData(value, function (champArray) {
+                        var number = Math.floor(Math.random() * champArray.length);
+                        console.log(champArray[number])
+                        $('.champion-panel').eq(i-1).prepend("<img id='champ-art' src='../assets/13.3.1/img/tft-champion/" + champArray[number] + "'/>");
+                    });
+                    break;
+                case 4:
+                    console.log("pink")
+                    getChampionData(value, function (champArray) {
+                        var number = Math.floor(Math.random() * champArray.length);
+                        console.log(champArray[number])
+                        $('.champion-panel').eq(i-1).prepend("<img id='champ-art' src='../assets/13.3.1/img/tft-champion/" + champArray[number] + "'/>");
+                    });
+                    break;
+                case 5:
+                    console.log("yellow")
+                    getChampionData(value, function (champArray) {
+                        var number = Math.floor(Math.random() * champArray.length);
+                        console.log(champArray[number])
+                        $('.champion-panel').eq(i-1).prepend("<img id='champ-art' src='../assets/13.3.1/img/tft-champion/" + champArray[number] + "'/>");
+                    });
+                    break;
             }
         });
     }
