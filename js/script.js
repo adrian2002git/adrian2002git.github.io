@@ -43,12 +43,34 @@ $(document).ready(function() {
         });
     }
 
-    generateChampion(function(championArray) {
-        refreshShop(championArray);
+    $("#roll").click(function() {
+        generateChampion(function(championArray) {
+            refreshShop(championArray);
+        });
     });
 
     function refreshShop(championArray) {
         // Use the championArray here
-        console.log(championArray)
+        console.log(championArray);
+        $.each(championArray, function( index, value ) {
+            console.log( index + ": " + value );
+            switch (value){
+                case "1":
+                    $(".champion-panel").style("background: gray");
+                    break;
+                case "2":
+                    break;
+
+                case "3":
+                    break;
+
+                case "4":
+                    break;
+
+                case "5":
+                    break;
+
+            }
+        });
     }
 });
