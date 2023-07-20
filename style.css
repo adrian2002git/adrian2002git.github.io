@@ -38,7 +38,20 @@ p{
 }
 
 .NavIcons{
-    margin-left: 100px;
+    margin-top: 43px;
+    
+}
+
+.NavIcons-Gem{
+margin-left: 120px;
+}
+
+.NavIcons-Home{
+
+}
+
+.NavIcons-Account{
+    margin-right: 120px;
 }
 
 .profilbild{
