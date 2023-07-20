@@ -1,25 +1,25 @@
 body{
     display: grid;
     grid-template-columns: 50px 728px 50px;
-    grid-template-rows: 1642px 150px;
+    grid-template-rows: 1692px 100px;
 }
 
 .div1{
     width: 50px;
-    height: 1642px;
+    height: 1692px;
     background-color: red;
 }
 
 .div2{
     width: 728px;
-    height: 1642px;
+    height: 1692px;
     background-color: blue;
     align-items: center;
 }
 
 .div3{
     width: 50px;
-    height: 1642px;
+    height: 1692px;
     background-color: green;
 }
 
@@ -37,10 +37,14 @@ p{
     margin-top: 0px;
 }
 
+.NavIcons{
+    margin-left: 100px;
+}
+
 .profilbild{
     width: 100px;
     height: 100px;
-    
+
 }
 
 
