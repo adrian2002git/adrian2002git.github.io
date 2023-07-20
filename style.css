@@ -1,7 +1,67 @@
-@media only screen and (max-width: 600px){
-    body{
-        background: lightblue;
-    }
+body{
+    display: grid;
+    grid-template-columns: 50px 728px 50px;
+    grid-template-rows: 1642px 150px;
+}
 
+.div1{
+    width: 50px;
+    height: 1642px;
+    background-color: red;
+}
+
+.div2{
+    width: 728px;
+    height: 1642px;
+    background-color: blue;
+    align-items: center;
+}
+
+.div3{
+    width: 50px;
+    height: 1642px;
+    background-color: green;
+}
+
+.div4{
+    height: 150px;
+    width: 828px;
+    background-color: violet;
+}
+
+p{
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 150px;
+    margin-top: 0px;
+}
+
+.profilbild{
+    width: 100px;
+    height: 100px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 600px){
     
 }
