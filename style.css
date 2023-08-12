@@ -1,81 +1,28 @@
-body{
-    display: grid;
-    grid-template-columns: 50px 728px 50px;
-    grid-template-rows: 1692px 100px;
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
-.div1{
-    width: 50px;
-    height: 1692px;
-    background-color: red;
+.container {
+    display: flex;
+    height: 100%;
 }
 
-.div2{
-    width: 728px;
-    height: 1692px;
-    background-color: blue;
-    align-items: center;
+.divLinks {
+    flex: 1;
+    background-color: lightblue; /* Nur für die Sichtbarkeit im Beispiel */
 }
 
-.div3{
-    width: 50px;
-    height: 1692px;
-    background-color: green;
+.divMitte {
+    flex: 10; /* Ändere die Flex-Wert auf 2, um den mittleren Teil breiter zu machen */
+    background-color: lightgreen; /* Nur für die Sichtbarkeit im Beispiel */
 }
 
-.div4{
-    height: 150px;
-    width: 828px;
-    background-color: violet;
+.divRechts {
+    flex: 1;
+    background-color: lightyellow; /* Nur für die Sichtbarkeit im Beispiel */
 }
-
-p{
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    margin-left: 150px;
-    margin-top: 0px;
-}
-
-.NavIcons{
-    margin-top: 43px;
-    
-}
-
-.NavIcons-Gem{
-margin-left: 120px;
-}
-
-.NavIcons-Home{
-
-}
-
-.NavIcons-Account{
-    margin-right: 120px;
-}
-
-.profilbild{
-    width: 100px;
-    height: 100px;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
