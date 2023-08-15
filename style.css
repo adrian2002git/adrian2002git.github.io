@@ -6,7 +6,18 @@ body, html {
 
 .container {
     display: flex;
+    flex-direction: column; /* Anordnung der Boxen in einer Spalte */
     height: 100%;
+}
+
+.topRow {
+    display: flex;
+    flex: 1;
+}
+
+.bottomRow {
+    flex: 0.06; /* Die untere Reihe soll den verfügbaren Platz einnehmen */
+    display: flex; /* In der unteren Reihe die Boxen nebeneinander anordnen */
 }
 
 .divLinks {
@@ -15,7 +26,7 @@ body, html {
 }
 
 .divMitte {
-    flex: 10; /* Ändere die Flex-Wert auf 2, um den mittleren Teil breiter zu machen */
+    flex: 10;
     background-color: lightgreen; /* Nur für die Sichtbarkeit im Beispiel */
 }
 
@@ -23,6 +34,29 @@ body, html {
     flex: 1;
     background-color: lightyellow; /* Nur für die Sichtbarkeit im Beispiel */
 }
+
+.divUnten {
+    display: flex;
+    justify-content: space-around; /* Space around images for equal spacing */
+    align-items: center; /* Center align images vertically */
+    background-color: lightcoral; /* Only for visibility in the example */
+    flex: 1;
+}
+
+
+
+
+.icon-link {
+    text-decoration: none; /* Remove underline from links */
+}
+
+.icon-img {
+    max-width: 100%; /* Ensure images don't exceed the container width */
+    max-height: 100%; /* Ensure images don't exceed the container height */
+    width: auto; /* Allow images to adjust width while maintaining aspect ratio */
+    height: auto; /* Allow images to adjust height while maintaining aspect ratio */
+}
+
 
 
 
